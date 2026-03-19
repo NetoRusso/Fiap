@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "yarn test:build && yarn test:e2e && yarn test:lighthouse",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 'cypress run'",
+    "test:e2e:open": "start-server-and-test dev http://localhost:3000 'cypress open'",
+    "test:lighthouse": "start-server-and-test dev http://localhost:3000 lhci",
+    "test:build": "next build",
+    "lhci": "lhci autorun"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -17,12 +23,15 @@
     "sass": "^1.98.0"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.14.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "cypress": "^13.15.2",
     "eslint": "^9",
     "eslint-config-next": "16.1.7",
+    "start-server-and-test": "^2.0.8",
     "typescript": "^5"
   }
 }

@@ -1,0 +1,214 @@
+# GitHub Actions CI/CD Example
+# 
+# Este arquivo é um EXEMPLO de como configurar CI/CD no GitHub Actions
+# Para ativar, remova este comentário e mova para .github/workflows/ci.yml
+
+name: CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # Job 1: Build & Lint
+  build:
+    name: Build & Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+      
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'yarn'
+        
+    - name: 📥 Install dependencies
+      run: yarn install --frozen-lockfile
+      
+    - name: 🧹 Lint
+      run: yarn lint
+      
+    - name: 🏗️ Build
+      run: yarn build
+      
+    - name: 📤 Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build
+        path: .next
+        retention-days: 1
+
+  # Job 2: TypeScript Check
+  typecheck:
+    name: TypeScript Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+      
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'yarn'
+        
+    - name: 📥 Install dependencies
+      run: yarn install --frozen-lockfile
+      
+    - name: 🔍 Type check
+      run: npx tsc --noEmit
+
+  # Job 3: Cypress E2E Tests
+  cypress:
+    name: Cypress E2E Tests
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+      
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'yarn'
+        
+    - name: 📥 Install dependencies
+      run: yarn install --frozen-lockfile
+      
+    - name: 🧪 Run Cypress tests
+      uses: cypress-io/github-action@v5
+      with:
+        start: yarn dev
+        wait-on: 'http://localhost:3000'
+        wait-on-timeout: 120
+        browser: chrome
+        record: false
+        
+    - name: 📤 Upload Cypress screenshots
+      uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+        name: cypress-screenshots
+        path: cypress/screenshots
+        
+    - name: 📤 Upload Cypress videos
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: cypress-videos
+        path: cypress/videos
+
+  # Job 4: Lighthouse CI
+  lighthouse:
+    name: Lighthouse Performance Audit
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+      
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'yarn'
+        
+    - name: 📥 Install dependencies
+      run: yarn install --frozen-lockfile
+      
+    - name: 🏗️ Build
+      run: yarn build
+      
+    - name: 💡 Run Lighthouse CI
+      run: |
+        yarn start &
+        sleep 10
+        yarn lhci autorun
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        
+    - name: 📤 Upload Lighthouse results
+      uses: actions/upload-artifact@v3
+      with:
+        name: lighthouse-results
+        path: .lighthouseci
+
+  # Job 5: Deploy Preview (Vercel)
+  deploy-preview:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    needs: [build, typecheck, cypress]
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+      
+    - name: 🚀 Deploy to Vercel (Preview)
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        scope: ${{ secrets.VERCEL_ORG_ID }}
+
+  # Job 6: Deploy Production (Vercel)
+  deploy-production:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+    needs: [build, typecheck, cypress, lighthouse]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+      
+    - name: 🚀 Deploy to Vercel (Production)
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        vercel-args: '--prod'
+        scope: ${{ secrets.VERCEL_ORG_ID }}
+
+  # Job 7: Size Check
+  size:
+    name: Bundle Size Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+      
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'yarn'
+        
+    - name: 📥 Install dependencies
+      run: yarn install --frozen-lockfile
+      
+    - name: 🏗️ Build
+      run: yarn build
+      
+    - name: 📊 Analyze bundle size
+      run: |
+        du -sh .next
+        find .next -name "*.js" -type f -exec du -h {} + | sort -rh | head -20
+
+# Secrets necessários (configurar em Settings > Secrets):
+# - VERCEL_TOKEN: Token da Vercel
+# - VERCEL_ORG_ID: Organization ID da Vercel
+# - VERCEL_PROJECT_ID: Project ID da Vercel
+# - LHCI_GITHUB_APP_TOKEN: Token do Lighthouse CI (opcional)
