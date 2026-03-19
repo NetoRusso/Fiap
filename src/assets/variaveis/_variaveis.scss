@@ -1,0 +1,36 @@
+
+
+// Cores
+$black: #000000;
+$white: #ffffff;
+$opacity: #8A959B;
+$gray: #141313;
+$pink: #ED145B;
+
+
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInOutHard {
+  0% {
+    opacity: 0;
+    transform: translateY(-48px);
+    height: 0%;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    height: 100%;
+  }
+}

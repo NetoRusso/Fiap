@@ -1,0 +1,32 @@
+
+.intro {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  
+  
+  &_desk {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 48px;
+    // padding-top: 48px;
+
+    .image {
+      width: 78%;
+      height: auto;
+    }
+
+    .scrollElement {
+      position: absolute;
+      bottom: -200px;
+    }
+  }
+}

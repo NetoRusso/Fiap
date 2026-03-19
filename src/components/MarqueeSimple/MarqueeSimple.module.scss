@@ -1,0 +1,48 @@
+.marqueeSimple {
+  width: 100%;
+  overflow-x: hidden;
+
+  .text_marquee {
+    width: max-content;
+    font-size: clamp(1.3785rem, 1.2082rem + 0.6599vw, 2rem);
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    text-transform: uppercase;
+    word-wrap: none;
+    white-space: nowrap;
+    border-bottom: 1px solid $white;
+    padding: 8px;
+    margin-bottom: 8px;
+
+    &.line1 {
+      animation: move-marquee-right 20s linear infinite;
+    }
+
+    &.line2 {
+      animation: move-marquee-left 20s linear infinite;
+    }
+
+  }
+
+  @keyframes move-marquee-right {
+    from {
+      transform: translateX(-50%);
+    }
+
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes move-marquee-left {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}

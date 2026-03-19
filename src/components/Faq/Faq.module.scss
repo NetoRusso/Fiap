@@ -1,0 +1,112 @@
+.faq {
+  width: 100%;
+  height: auto;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &_container {
+    width: 70%;
+    // min-width: 1000px;
+    height: auto;
+    min-height: 633px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-self: flex-start;
+    justify-content: flex-start;
+    gap: 64px;
+
+    &_header {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+
+      h2 {
+        font-size: 2.3rem;
+        font-weight: 500;
+        color: $white;
+        line-height: 100%;
+        letter-spacing: 0%;
+        vertical-align: middle;
+      }
+
+      span {
+        font-size: 0.57rem;
+        font-weight: 500;
+        color: $white;
+        line-height: 100%;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        color: $pink;
+      }
+    }
+
+    &_list {
+      width: 100%;
+      height: auto;
+      min-height: 600px;
+      // border: 1px solid red;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      gap: 16px;
+
+      &_item {
+        width: 375px;
+        height: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        gap: 24px;
+        cursor: pointer;
+
+        h3 {
+          width: 100%;
+          font-weight: 400;
+          font-size: 20px;
+          letter-spacing: -1%;
+        }
+
+        p {
+          opacity: 0;
+          height: 0;
+          font-family: 'roboto', sans-serif;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 20px;
+          transform: translateY(-20px);
+          transition: all 1s ease-in-out;
+          letter-spacing: 1.2;
+        }
+
+        .border {
+          width: 16%;
+          height: 2px;
+          background-color: #8A959B;
+          border-top-right-radius: 48px;
+          border-bottom-right-radius: 48px;
+          transition: all 1s ease-in-out;
+        }
+
+        &:hover {
+          .border {
+            width: 100%;
+            background-color: $pink;
+          }
+
+          p {
+            opacity: 1;
+            height: auto;
+            transform: translateY(0);
+            animation: fadeInOutHard 1s ease-in-out forwards;
+          }
+        }
+      }
+    }
+  }
+
+}

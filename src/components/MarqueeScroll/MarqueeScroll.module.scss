@@ -1,0 +1,19 @@
+.marqueeScroll {
+  width: 100%;
+  overflow-x: hidden;
+
+  .text_marquee {
+    width: max-content;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px $opacity;
+    paint-order: stroke fill;
+    will-change: transform;
+    
+  }
+}

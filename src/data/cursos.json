@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "tipo": "Tecnologia",
+    "selected": "tecnologia",
+    "materia": [
+      {
+        "nome": "Big Data Ecosystem",
+        "recursos": [
+          "Remoto .",
+          " Live"
+        ]
+      },
+      {
+        "nome": "Creating Dashboards for BI",
+        "recursos": [
+          "Remoto .",
+          " Live",
+          " + Multimídia"
+        ]
+      },
+      {
+        "nome": "Big Data Science - Machine Learning & Data Mining",
+        "recursos": [
+          "Remoto .",
+          " Live"
+        ]
+      },
+      {
+        "nome": "Storytelling",
+        "recursos": [
+          "Remoto .",
+          " Live",
+          " + Multimídia"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "tipo": "Inovação",
+    "selected": "inovacao",
+    "materia": [
+      {
+        "nome": "UX",
+        "recursos": [
+          "Remoto .",
+          " Live"
+        ]
+      },
+      {
+        "nome": "UX Writing",
+        "recursos": [
+          "Remoto"
+        ]
+      },
+      {
+        "nome": "Chatbots",
+        "recursos": [
+          "Remoto .",
+          " Live ",
+          " + Multimídia"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "tipo": "Negócios",
+    "selected": "negocios",
+    "materia": [
+      {
+        "nome": "Agile Culture",
+        "recursos": [
+          "Live"
+        ]
+      },
+      {
+        "nome": "DPO Data Protection Officer",
+        "recursos": [
+          "Remoto .",
+          " Live"
+        ]
+      },
+      {
+        "nome": "IT Business Partner",
+        "recursos": [
+          "Remoto .",
+          " Live",
+          " + Multimídia"
+        ]
+      },
+      {
+        "nome": "Perícia Forense Computacional",
+        "recursos": [
+          "Remoto .",
+          " Live",
+          " + Multimídia"
+        ]
+      },
+      {
+        "nome": "Growth Hacking",
+        "recursos": [
+          "Remoto ."
+        ]
+      }
+    ]
+  }
+]

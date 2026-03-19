@@ -1,0 +1,30 @@
+.waterAnimation {
+  width: 100%;
+  height: calc(200dvh - 128px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 128px;
+
+  
+  .canvas {
+    width: 100vw;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    position: static;
+    top: 50%;
+    transform: translateY(-50%);
+    object-fit: cover;
+
+  }
+
+  .loading {
+    color: $white;
+    font-size: 1.2rem;
+    pointer-events: none;
+  }
+
+}
