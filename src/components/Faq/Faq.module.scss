@@ -81,6 +81,10 @@
           transform: translateY(-20px);
           transition: all 1s ease-in-out;
           letter-spacing: 1.2;
+
+          @media (min-width: 1080px) {
+            min-height: 180px;
+          }
         }
 
         .border {
@@ -103,6 +107,7 @@
             height: auto;
             transform: translateY(0);
             animation: fadeInOutHard 1s ease-in-out forwards;
+
           }
         }
       }
