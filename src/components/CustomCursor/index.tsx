@@ -9,7 +9,6 @@ export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const outLineSvg = useRef<SVGSVGElement>(null);
   const solidSvg = useRef<SVGSVGElement>(null);
-  const [isClicked, setIsClicked] = useState(false);
   const [hasPointer, setHasPointer] = useState(false);
 
 
@@ -30,8 +29,9 @@ export default function CustomCursor() {
   }, []);
 
   useGSAP(() => {
-
-    if (!hasPointer) return;
+    if (!hasPointer || !cursorRef.current || !solidSvg.current || !outLineSvg.current) {
+      return;
+    }
 
     const xTo = gsap.quickTo(cursorRef.current, 'x', { duration: 0.4, ease: 'power3' });
     const yTo = gsap.quickTo(cursorRef.current, 'y', { duration: 0.4, ease: 'power3' });
@@ -42,8 +42,8 @@ export default function CustomCursor() {
     };
 
     const handleMouseDown = () => {
-      setIsClicked(true);
-
+      if (!solidSvg.current || !outLineSvg.current) return;
+      
       gsap.to(solidSvg.current, {
         opacity: 0,
         scale: 0.8,
@@ -60,8 +60,8 @@ export default function CustomCursor() {
     };
 
     const handleMouseUp = () => {
-      setIsClicked(false);
-
+      if (!solidSvg.current || !outLineSvg.current) return;
+      
       gsap.to(outLineSvg.current, {
         opacity: 0,
         scale: 0.8,
@@ -94,7 +94,7 @@ export default function CustomCursor() {
   if (!hasPointer) return null;
 
   return (
-   <div ref={cursorRef} className="custom-cursor">
+    <div ref={cursorRef} className="custom-cursor">
       <div className='svg-wrapper'>
         <svg
           id="Camada_2"

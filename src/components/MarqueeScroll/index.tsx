@@ -6,7 +6,6 @@ import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import { duplicateContent } from '@/util/textFunctions';
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const MarqueeScroll = () => {
@@ -27,12 +26,12 @@ const MarqueeScroll = () => {
     duplicateContent(line1, 10);
     duplicateContent(line2, 10);
 
-
     const st1 = ScrollTrigger.create({
       trigger: container,
       start: 'top bottom',
       end: 'bottom top',
       scrub: 1,
+      id: 'marquee-scroll-1',
       animation: gsap.fromTo(
         line1,
         { x: '-10%' },
@@ -45,6 +44,7 @@ const MarqueeScroll = () => {
       start: 'top bottom',
       end: 'bottom top',
       scrub: 1,
+      id: 'marquee-scroll-2',
       animation: gsap.fromTo(
         line2,
         { x: '10%' },
@@ -56,12 +56,32 @@ const MarqueeScroll = () => {
 
     return () => {
       isMountedRef.current = false;
+      
       scrollTriggerRef.current.forEach(st => {
-        if (st) st.kill(true);
+        if (st) {
+          try {
+            st.kill(true);
+          } catch (error) {
+            console.error('Error killing ScrollTrigger:', error);
+          }
+        }
       });
       scrollTriggerRef.current = [];
-    };
 
+      try {
+        ScrollTrigger.getAll().forEach(st => {
+          if (
+            st.vars.id === 'marquee-scroll-1' || 
+            st.vars.id === 'marquee-scroll-2' ||
+            st.vars.trigger === container
+          ) {
+            st.kill(true);
+          }
+        });
+      } catch (error) {
+        console.error('Error in additional ScrollTrigger cleanup:', error);
+      }
+    };
   }, []);
 
   return (

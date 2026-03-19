@@ -1,39 +1,33 @@
 'use client';
 
-
-import { useState } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import styles from './Cursos.module.scss';
 import data from '@/data/cursos.json';
 import { useScreen } from '@/context/ScreenContext';
-
-type TipoCurso = "tecnologia" | "inovacao" | "negocios";
+import type { TipoCurso, CursoData } from '@/types';
 
 const isTipoCurso = (tipo: string): tipo is TipoCurso => {
   return ['tecnologia', 'inovacao', 'negocios'].includes(tipo);
 };
 
-
-
 const Cursos = () => {
   const { isDesktop } = useScreen();
   const [tipoSelecionado, setTipoSelecionado] = useState<TipoCurso | string>(isDesktop ? 'tecnologia' : '');
 
-  const handleTipoChange = (tipo: string) => {
+  const handleTipoChange = useCallback((tipo: string) => {
     if (isTipoCurso(tipo)) {
       setTipoSelecionado(tipo);
     }
-  };
+  }, []);
 
-  const toggleOpen = (tipo: TipoCurso) => {
-    if (tipoSelecionado === tipo) {
-      setTipoSelecionado('');
-      return;
-    }
-    setTipoSelecionado(tipo);
+  const toggleOpen = useCallback((tipo: TipoCurso) => {
+    setTipoSelecionado(prev => prev === tipo ? '' : tipo);
+  }, []);
 
-  };
-
-
+  const cursoSelecionado = useMemo(
+    () => data.find((item) => item.selected === tipoSelecionado),
+    [tipoSelecionado]
+  );
 
   return (
     <section
@@ -50,17 +44,16 @@ const Cursos = () => {
             </div>
             <div className={styles.cursos_container_view_type}>
               <h3 key={tipoSelecionado}>
-                {data.find((item) => item.selected === tipoSelecionado)?.tipo || 'Cursos'}
+                {cursoSelecionado?.tipo || 'Cursos'}
               </h3>
             </div>
             <div key={tipoSelecionado} className={styles.cursos_container_view_list}>
-              {data.find((item) => item.selected === tipoSelecionado)
-                ?.materia.map((materia, index) => (
-                  <div key={index} className={styles.cursos_container_view_list_item}>
-                    <p>{materia.nome}</p>
-                    <span>{materia.recursos.join(' ')}</span>
-                  </div>
-                ))}
+              {cursoSelecionado?.materia.map((materia, index) => (
+                <div key={index} className={styles.cursos_container_view_list_item}>
+                  <p>{materia.nome}</p>
+                  <span>{materia.recursos.join(' ')}</span>
+                </div>
+              ))}
             </div>
           </div>
           <div className={styles.cursos_container_menu}>
@@ -96,12 +89,13 @@ const Cursos = () => {
                       ${tipoSelecionado === item.selected ? styles.cursos_mobile_list_item_thead_btn_active : ''}
                     `}
                     onClick={() => toggleOpen(item.selected as TipoCurso)}
+                    aria-expanded={tipoSelecionado === item.selected}
+                    aria-label={`${tipoSelecionado === item.selected ? 'Fechar' : 'Abrir'} ${item.tipo}`}
                   >
                     {tipoSelecionado === item.selected ? '-' : '+'}
                   </button>
                 </div>
                 <div 
-                  
                   className={`
                   ${styles.cursos_mobile_list_item_tbody}
                   ${tipoSelecionado === item.selected ? styles.cursos_mobile_list_item_tbody_open : ''}

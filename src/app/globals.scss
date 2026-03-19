@@ -11,7 +11,6 @@
 // scrollbar
   @media (min-width : 1281px) {
     * {
-      // scrollbar-width: calc(2px);
       scrollbar-color: $pink;
       scrollbar-gutter: 0;
 
@@ -21,11 +20,9 @@
       }
 
       &::-webkit-scrollbar-track {
-        // background-color: rgba($pink, 0.4);
         background-color: rgba(0, 0, 0, 0.1);
 
         &:hover {
-          // background-color: rgba($pink, 0.4);
         background-color: rgba(0, 0, 0, 0.1);
         }
       }
@@ -58,8 +55,6 @@ body {
   overflow-x: hidden;
   color: $white;
   background-color: $black;
-
-  // font-size: .390625vw;
   font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
   text-size-adjust: none;
   -moz-text-size-adjust: none;

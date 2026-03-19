@@ -1,9 +1,9 @@
 'use client';
 
+import { memo } from 'react';
 import styles from './Header.module.scss';
 
-const Header = () => {
-
+const Header = memo(() => {
   return (
     <section
       className={styles.header}
@@ -22,6 +22,8 @@ const Header = () => {
       </div>
     </section>
   )
-};
+});
+
+Header.displayName = 'Header';
 
 export default Header;

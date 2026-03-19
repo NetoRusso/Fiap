@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import styles from './Navbar.module.scss';
 import logo from '@/assets/img/svg/logo-fiap.svg';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, memo } from 'react';
 
-const Navbar = () => {
+const Navbar = memo(() => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -33,6 +33,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleLogoClick = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <header className={styles.navbar}>
       <div className={styles.navbar_container}>
@@ -41,8 +45,8 @@ const Navbar = () => {
           src={logo}
           alt="Logo da FIAP"
           width={144}
-          preload
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          priority
+          onClick={handleLogoClick}
         />
         <div
           className={styles.navbar_container_progress}
@@ -51,6 +55,8 @@ const Navbar = () => {
       </div>
     </header>
   )
-};
+});
+
+Navbar.displayName = 'Navbar';
 
 export default Navbar;

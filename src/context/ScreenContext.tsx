@@ -80,7 +80,6 @@ export const ScreenProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-//useHook para acessar o contexto
 export const useScreen = () => {
   const context = useContext(ScreenContext);
   if (!context || context === undefined) {

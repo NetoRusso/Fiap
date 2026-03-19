@@ -2,14 +2,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 80px; // Tamanho base
+  width: 80px;
   height: 80px;
-  pointer-events: none; // Obrigatório para conseguir clicar nos botões abaixo
+  pointer-events: none;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  mix-blend-mode: difference; // Cria um contraste incrível em fundos pretos/brancos
+  mix-blend-mode: difference;
 
   .svg-wrapper {
     position: relative;
@@ -22,13 +22,16 @@
       height: 100%;
       top: 0;
       left: 0;
-      transform: translate(-50%, -50%); // Centraliza a ponta do cursor no mouse
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
   }
 }
 
-// Esconde o cursor nativo nas seções específicas
-.intro-section,
-.water-section {
-  cursor: none;
-}
+// body:has(.custom-cursor) {
+//   cursor: none;
+  
+//   // * {
+//   //   cursor: none !important;
+//   // }
+// }
