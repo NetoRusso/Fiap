@@ -28,10 +28,12 @@
   }
 }
 
+//Descomente para ocultar o cursor nativo quando a classe .custom-cursor estiver presente no body
+
 // body:has(.custom-cursor) {
 //   cursor: none;
   
-//   // * {
-//   //   cursor: none !important;
-//   // }
+//   * {
+//     cursor: none !important;
+//   }
 // }
