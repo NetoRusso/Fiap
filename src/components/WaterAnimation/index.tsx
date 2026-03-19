@@ -75,10 +75,10 @@ const WaterAnimation = () => {
       scrollTrigger: {
         trigger: container,
         start: 'top top',
-        end: 'bottom bottom',
+        end: '+=100%',
         scrub: 0.5,
         pin: true,
-        pinSpacing: true,
+        pinSpacing: '+=10%',
         id: 'water-animation-trigger'
       },
       onUpdate: () => {
@@ -141,6 +141,7 @@ const WaterAnimation = () => {
       className={styles.waterAnimation}
       key="water-animation"
       suppressHydrationWarning
+      id='water'
     >
       <canvas ref={canvasRef} className={styles.canvas} />
       {!imagesLoaded && (

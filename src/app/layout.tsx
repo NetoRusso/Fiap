@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Roboto } from "next/font/google";
 import "./globals.scss";
 import { ScreenProvider } from "@/context/ScreenContext";
+import CustomCursor from "@/components/CustomCursor";
 
 const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "900"],
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${montserrat.variable} ${roboto.variable}`}>
       <body className={montserrat.className}>
         <ScreenProvider>
+          <CustomCursor />
           {children}
         </ScreenProvider>
       </body>
