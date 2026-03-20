@@ -8,8 +8,8 @@
     width: 0;
   }
 }
-// scrollbar
-  @media (min-width : 1281px) {
+
+@media (min-width : 1281px) {
     * {
       scrollbar-color: $pink;
       scrollbar-gutter: 0;
@@ -53,6 +53,7 @@ body {
   height: auto;
   min-height: 100dvh;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   color: $white;
   background-color: $black;
   font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);

@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import styles from './Cursos.module.scss';
 import data from '@/data/cursos.json';
 import { useScreen } from '@/context/ScreenContext';
-import type { TipoCurso, CursoData } from '@/types';
+import type { TipoCurso } from '@/types';
 
 const isTipoCurso = (tipo: string): tipo is TipoCurso => {
   return ['tecnologia', 'inovacao', 'negocios'].includes(tipo);
@@ -13,6 +13,13 @@ const isTipoCurso = (tipo: string): tipo is TipoCurso => {
 const Cursos = () => {
   const { isDesktop } = useScreen();
   const [tipoSelecionado, setTipoSelecionado] = useState<TipoCurso | string>(isDesktop ? 'tecnologia' : '');
+
+  useEffect(() => {
+    if (!isDesktop) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setTipoSelecionado('');
+    }
+  }, [isDesktop]);
 
   const handleTipoChange = useCallback((tipo: string) => {
     if (isTipoCurso(tipo)) {

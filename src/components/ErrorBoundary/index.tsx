@@ -13,14 +13,6 @@ interface State {
   error?: Error;
 }
 
-/**
- * Error Boundary para capturar erros em componentes filhos
- * 
- * @example
- * <ErrorBoundary fallback={<div>Algo deu errado</div>}>
- *   <ComponenteQuePodemFalhar />
- * </ErrorBoundary>
- */
 class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);

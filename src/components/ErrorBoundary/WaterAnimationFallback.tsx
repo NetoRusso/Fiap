@@ -1,6 +1,5 @@
 'use client';
 
-// Error Boundary Fallback específico para WaterAnimation
 import styles from './WaterAnimationFallback.module.scss';
 
 export default function WaterAnimationFallback() {

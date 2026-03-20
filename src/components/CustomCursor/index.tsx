@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useMediaQuery } from '@/util/useMediaQuery';
 import './CustomCursor.scss';
 
 export default function CustomCursor() {
@@ -10,7 +11,7 @@ export default function CustomCursor() {
   const outLineSvg = useRef<SVGSVGElement>(null);
   const solidSvg = useRef<SVGSVGElement>(null);
   const [hasPointer, setHasPointer] = useState(false);
-
+  const isMobile = useMediaQuery('(max-width: 1024px)');
 
   useEffect(() => {
     const checkPointerDevice = () => {
@@ -91,7 +92,7 @@ export default function CustomCursor() {
 
   }, { scope: cursorRef, dependencies: [hasPointer] });
 
-  if (!hasPointer) return null;
+  if (isMobile || !hasPointer) return null;
 
   return (
     <div ref={cursorRef} className="custom-cursor">

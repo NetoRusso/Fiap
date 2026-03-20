@@ -142,7 +142,7 @@ const WaterAnimation = () => {
         trigger: container,
         start: 'top top',
         end: '+=100%',
-        scrub: 0.5,
+        scrub: 1.5,
         pin: true,
         pinSpacing: '+=10%',
         id: 'water-animation-trigger',

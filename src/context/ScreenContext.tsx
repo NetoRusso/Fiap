@@ -56,7 +56,7 @@ export const ScreenProvider = ({ children }: { children: ReactNode }) => {
     } else {
       const timer = setTimeout(() => {
         setShouldShowDesktop(false);
-      }, 150);
+      }, 50);
 
       return () => clearTimeout(timer);
     }
