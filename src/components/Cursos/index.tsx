@@ -51,7 +51,7 @@ const Cursos = () => {
             </div>
             <div className={styles.cursos_container_view_type}>
               <h3 key={tipoSelecionado}>
-                {cursoSelecionado?.tipo || 'Cursos'}
+                {cursoSelecionado?.tipo || 'Selecione sua àrea de interesse'}
               </h3>
             </div>
             <div key={tipoSelecionado} className={styles.cursos_container_view_list}>

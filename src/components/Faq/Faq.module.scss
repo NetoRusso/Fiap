@@ -23,6 +23,7 @@
       align-items: flex-start;
       justify-content: center;
       gap: 8px;
+      pointer-events: none;
 
       h2 {
         font-size: 2.3rem;
@@ -52,6 +53,7 @@
       flex-flow: row wrap;
       justify-content: space-evenly;
       gap: 16px;
+      cursor: crosshair;
 
       &_item {
         width: 375px;
@@ -60,7 +62,7 @@
         flex-flow: column nowrap;
         align-items: flex-start;
         gap: 24px;
-        cursor: pointer;
+        
 
         h3 {
           width: 100%;

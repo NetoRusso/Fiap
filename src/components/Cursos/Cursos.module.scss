@@ -15,6 +15,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+    
 
 
     &_view {
@@ -31,6 +32,7 @@
         flex-flow: column nowrap;
         align-items: flex-start;
         justify-content: center;
+        pointer-events: none;
 
         h2 {
           font-size: 2.3rem;
@@ -62,6 +64,7 @@
           color: $white;
           text-transform: capitalize;
           animation: fadeInOut 1s ease-in-out;
+          pointer-events: none;
         }
       }
 
@@ -87,8 +90,9 @@
           gap: 32px;
           padding-bottom: 16px;
           border-bottom: 1px solid $opacity;
-
-
+          transition: all .2s ease-in-out;
+          
+          
           p {
             font-family: 'Roboto Mono', monospace;
             font-weight: 300;
@@ -96,8 +100,9 @@
             line-height: 30px;
             color: $opacity;
             vertical-align: middle;
+            transition: all .2s ease-in-out;
           }
-
+          
           span {
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
@@ -105,6 +110,16 @@
             line-height: 12px;
             vertical-align: middle;
             color: $opacity;
+            transition: all .2s ease-in-out;
+          }
+
+          &:hover {
+            cursor: crosshair;
+            border-color: $pink;
+            p,
+            span {
+              color: $pink;
+            }
           }
 
         }
@@ -289,7 +304,7 @@
         &_tbody {
           width: 100%;
           max-height: 0px;
-          margin:  0;
+          margin: 0;
           overflow: hidden;
           display: flex;
           flex-flow: column nowrap;
@@ -298,7 +313,7 @@
           gap: 24px;
           transform: translateY(-24px);
           opacity: 0;
-          transition: max-height .2s ease-in-out, transform .5s linear,  opacity .5s ease-in-out, margin .5s linear;
+          transition: max-height .2s ease-in-out, transform .5s linear, opacity .5s ease-in-out, margin .5s linear;
 
           &_open {
             max-height: 3000px;
@@ -337,6 +352,3 @@
   }
 
 }
-
-
-
