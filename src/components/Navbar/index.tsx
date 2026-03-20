@@ -38,7 +38,7 @@ const Navbar = memo(() => {
   }, []);
 
   return (
-    <header className={styles.navbar}>
+    <nav className={styles.navbar} role="navigation" aria-label="Navegação principal">
       <div className={styles.navbar_container}>
         <Image
           className={styles.navbar_container_logo}
@@ -53,7 +53,7 @@ const Navbar = memo(() => {
           style={{ width: `${scrollProgress}%`}}
         />
       </div>
-    </header>
+    </nav>
   )
 });
 

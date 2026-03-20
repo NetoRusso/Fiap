@@ -141,7 +141,7 @@ const WaterAnimation = () => {
       scrollTrigger: {
         trigger: container,
         start: 'top top',
-        end: '+=100%',
+        end: '+=800',
         scrub: 1.5,
         pin: true,
         pinSpacing: '+=10%',

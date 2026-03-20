@@ -27,15 +27,17 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Header />
-      <Intro />
-      {shouldShowDesktop && (
-        <ErrorBoundary fallback={<WaterAnimationFallback />}>
-          <WaterAnimation />
-        </ErrorBoundary>
-      )}
-      <Cursos />
-      <Faq />
+      <main id="main-content">
+        <Header />
+        <Intro />
+        {shouldShowDesktop && (
+          <ErrorBoundary fallback={<WaterAnimationFallback />}>
+            <WaterAnimation />
+          </ErrorBoundary>
+        )}
+        <Cursos />
+        <Faq />
+      </main>
     </>
   );
 }
