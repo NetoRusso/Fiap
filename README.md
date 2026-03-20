@@ -65,9 +65,9 @@ http://localhost:3000
 Barra de progresso indicando posição na página
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/ccca8419-f3c0-4313-81bf-24b1e7dd7d5a" width="auto" height="200">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/progress.gif" width="auto" height="200">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/a11b6642-023f-46d3-871c-ba9cca1e6353" width="auto" height="200">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/progress_mobile.gif" width="auto" height="200">
 </p>
 
 ## Custom Cursor 🖱️
@@ -75,9 +75,9 @@ Cursor customizado com detecção de touch devices
 
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/1454acb6-772e-478a-a742-ea06cf498565" width="auto" height="300">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/cursor.gif" width="auto" height="300">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/9a39110c-c2d0-4a2b-ac29-1fd41ab9a08e" width="auto" height="300">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/cursor_mobile.gif" width="auto" height="300">
 </p>
 
 
@@ -86,9 +86,9 @@ Section Intro ajustada pelo device
 
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/6135f78f-bfa8-4406-ae47-bf4b5f3df85f" width="auto" height="300">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/intro.gif" width="auto" height="300">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/9508c7c0-e575-48fe-bf77-631626b710ba" width="auto" height="300">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/intro_mobile.gif" width="auto" height="300">
 </p>
 
 
@@ -97,16 +97,16 @@ Section Intro ajustada pelo device
 192 frames de animação com lazy loading progressivo
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/8e8a0eeb-b3b5-41d8-aab4-a21687ada493" width="auto" height="300">
+<img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/water.gif" width="auto" height="300">
 </p>
 
 ## Cursos Section 📒
 Grid responsivo com animações em scss e controle de estados
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e7127665-5bfb-43b8-b6ad-8b61da4bf84a" width="auto" height="300px">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/cursos.gif" width="auto" height="300px">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/dc2b9384-2b01-4446-b61b-fad503c1d85e" width="auto" height="300px">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/cursos_mobile.gif" width="auto" height="300px">
 </p>
 
 
@@ -114,9 +114,9 @@ Grid responsivo com animações em scss e controle de estados
 Accordion com transições suaves
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/f3cf4f32-797a-4358-ba59-31effc17ecc6" width="auto" height="300px">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/faq.gif" width="auto" height="300px">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/14b9b29d-8364-4cdf-bfcd-615b61e640d6" width="auto" height="300px">
+  <img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/faq_mobile.gif" width="auto" height="300px">
 </p>
 
 ---
@@ -219,7 +219,7 @@ npm run lighthouse
 - ✅ Animações GSAP
 - ✅ Performance e acessibilidade
 
-<img width="auto" height="300" alt="Image" src="https://github.com/user-attachments/assets/887e3e73-ab3f-4ad1-8541-be3e66cdfc4f" />
+<img width="auto" height="300" alt="Image" src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/teste.png" />
 
 ---
 # 🔧 Comandos Disponíveis
@@ -237,30 +237,32 @@ npm run lighthouse
 
 ---
 # 📱 Design Responsivo 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/user-attachments/assets/3de382d6-57d0-4981-83ca-e1d55bab6892" width="auto" height="80">
+
+<img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/responsive.gif" width="auto" height="80">
 ---
 
 - Desktop View
   -- 3840x2160 | 2560x1440 | 2560x1080 | 1920x1080 | 1600x900 | 1440x900 | 1366x768 | 1280x720
 <p align="left">
-<img src="https://github.com/user-attachments/assets/9b3fc4a4-72a5-40c2-9817-b9e44041def7" width="auto" height="300">
+<img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/desk.gif" width="auto" height="300">
 </p>
 
 - Tablet View
  -- 1024x640 | 1024x1366* | 820x1180 | 768x1024
 <p align="left">
-<img src="https://github.com/user-attachments/assets/b5db4cbf-5f42-4743-84a1-6b301c64d204" width="auto" height="300">
+<img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/tablet.gif" width="auto" height="300">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/user-attachments/assets/8f479130-21fa-4341-a3d5-4fa3baedd2a1" width="300" height="auto">
+<img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/tablet_H.gif" width="300" height="auto">
 </p>
 
 - Mobile View
  -- 414x736 | 360x640 | 320x568
 <p align="left">
-<img src="https://github.com/user-attachments/assets/759e8655-623c-442b-b999-9bbbbda2d331" width="auto" height="300">
+<img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/mobile.gif" width="auto" height="300">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/user-attachments/assets/c3e751b8-8bc7-41cf-9340-078338939a7c" width="300" height="auto">
+<img src="https://github.com/NetoRusso/Fiap/blob/main/public/image/gifs/mobile_H.gif" width="300" height="auto">
 </p>
 
 ---
